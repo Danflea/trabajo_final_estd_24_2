@@ -1,0 +1,91 @@
+---
+title: "3era Práctica calificada"
+author: "Estrella Guerra, Danilo David"
+date: "`r Sys.Date()`"
+output:
+  html_document: 
+    code_folding: hide
+    toc: yes
+    number_sections: yes
+    toc_float: yes
+    theme: yeti
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(pacman)
+p_load(vembedr, flextable, ggplot2, gganimate, magrittr, emo, gganimate)
+options(scipen = 999)
+```
+
+# Dos frases que me gustan
+
+🎸 `r emo::ji("guitar")`
+
+> "La vida es como montar en bicicleta. Para mantener el equilibrio tienes que avanzar".
+>
+> **Albert Einstein**
+
+> "Leer nos permite viajar a través del tiempo, tocar con la punta de los dedos la sabiduría de nuestros ancestros".
+>
+> **Carl Sagan**
+
+# Lista de Hobbies
+
+1.  Tocar la guitarra: relaja y aprendo nuevos géneros musicales.
+2.  Jugar fútbol: actividad física y encontrarse con los amigos.
+3.  Jugar Ajedrez: ayuda a mantener activa la agilidad mental y a jugar bajo presión.
+
+# Pasatiempos
+
+## Selfie
+
+Selfie tomada en barranco\
+![selfie](selfie.jpg){width="216"}
+
+## Pagina Web
+
+[Chachi Guitars](https://es.r4ds.hadley.nz/) es una pagina donde enseñan a tocar guitarra.  
+
+## Tema en formato CSS
+
+El tema que me gustó fue el de [litera](https://bootswatch.com/litera/).
+
+## Emoji
+
+`r emo::ji("guitar")`
+
+## Video de mi pasatiempo favorito
+
+```{r Video de Youtube}
+embed_url("https://www.youtube.com/watch?v=xgZH3PYyIo8&pp=ygUcd2hpdGVzbmFrZSBpcyB0aGlzIGxvdmUgc29sbw%3D%3D")
+```
+
+# Postulantes y Año
+
+```{r}
+
+# Crear datos
+
+Año = c(2018, 2019, 2020, 2021, 2022, 2023)
+Postulantes = c(2100, 2050, 2100, 1800, 2400, 2500)
+
+data <- data.frame(Año, Postulantes)
+
+data %>% flextable()
+
+```
+
+```{r}
+library(transformr)
+ggplot(data) + 
+  aes(x = Año, y = Postulantes) + 
+  geom_line(size = 0.8, color = "darkgreen") +
+  transition_states(Año) +
+  enter_fade() + 
+  geom_point(aes(x = Año, y = Postulantes))
+```
+
+# Media de Postulantes
+
+"En los últimos seis años el número de postulantes promedio ha sido de `r (mean(data$Postulantes)) %>% round(3)`

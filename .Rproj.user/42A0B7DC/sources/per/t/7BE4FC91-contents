@@ -1,0 +1,24 @@
+---
+title: "Trabajo final de Estadística Inferencial"
+author: "Estrella Guerra, Danilo David"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+```
+
+```{r lectura de datos, echo=FALSE}
+# Cargar el paquete readr
+library(readr)
+
+# Leer el archivo CSV
+data <- read.csv("Data_DeportistasBeneficiados.csv", sep = ";")
+```
+
+```{r seleccion de variables, echo=FALSE}
+poblacion_deportistas <- data[, c("ANIO", "FEDERACION", "NIVEL", "MONTO", "DEPARTAMENTO")]
+```
+
+
