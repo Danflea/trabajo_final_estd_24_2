@@ -17,8 +17,7 @@ output: pdf_document
 
 \vspace{0.75cm}
 
-\textbf{Alumnos:} \\Estrella Guerra Danilo David    20220763\\
-Tenorio Cortama Micky Alexander 20220551\\[0.5cm]
+\textbf{Alumnos:} \\Estrella Guerra Danilo David    20220763\\[0.5cm]
 
 \textbf{Curso:} Estadística general \\[1cm]
 \textbf{Docente:} Viernes Guadalupe Rosazza Villafranca \\[1cm]
@@ -39,7 +38,7 @@ knitr::opts_chunk$set(
 
 ```{r carga de librerias, echo=FALSE}
 library(pacman)
-p_load(ggplot2, readr, dplyr, tidyr, knit, kableExtra, EnvStats, )
+p_load(ggplot2, readr, dplyr, tidyr, knit, kableExtra, EnvStats)
 ```
 
 
